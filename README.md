@@ -4,7 +4,7 @@ This container will run up keystone against a mysql backend. Keystone provides A
 
 ## Using
 
-* Build the image: `docker build -t dizz/openstack-keystone .`
+* Build the image: `docker build -t dizz/dock-os-keystone .`
 * Run docker compose to bring up the stack: `docker-compose up`
 
 ## Environment Variables
