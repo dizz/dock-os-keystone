@@ -10,7 +10,7 @@ services:
   keystone:
     depends_on:
       - mysql
-    image: dizz/openstack-keystone
+    image: dizz/dock-os-keystone
     hostname: keystone
     links:
       - mysql
