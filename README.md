@@ -13,7 +13,9 @@ See the bootstrap.sh script
 
 ## Quick Test
 
-Use the credentials shown when
+The admin credentials to the keystone service instance will be shown when the keystone container starts.
+
+Use the user credentials shown when the following is executed...
 
 ### Get a Token
 ```
