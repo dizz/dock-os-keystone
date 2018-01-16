@@ -24,7 +24,7 @@ RUN apk --update add python py-pip openssl ca-certificates git curl py-mysqldb u
     && cp keystone/common/sql/migrate_repo/migrate.cfg /usr/lib/python2.7/site-packages/keystone/common/sql/migrate_repo \
     && cd - \
     && rm -rf keystone-${VERSION}* \
-    && pip install -U pika==0.10.0 \
+    && pip install -U python-memcached pika==0.10.0 \
     && apk del build-deps
 
 COPY keystone.conf /etc/keystone/keystone.conf
