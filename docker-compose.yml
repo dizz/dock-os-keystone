@@ -8,6 +8,8 @@ services:
       MYSQL_ROOT_PASSWORD: shush
 
   keystone:
+    build:
+      context: ./kbuild
     depends_on:
       - mysql
     image: dizz/dock-os-keystone
@@ -24,3 +26,18 @@ services:
       ADMIN_TENANT_NAME: admin
       ADMIN_USER_NAME: admin
       ADMIN_PASSWORD: admin
+
+  horizon:
+    build:
+      context: ./hbuild
+    depends_on:
+      - keystone
+    image: dizz/dock-os-horizon
+    hostname: horizon
+    links:
+      - keystone
+    ports:
+      - "80:80"
+    environment:
+      # KEYSTONE_URL: http://keystone:5000/v3
+      KEYSTONE_URL: http://keystone:5000/v2.0
