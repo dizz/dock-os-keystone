@@ -5,7 +5,7 @@ This container will run up [OpenStack Keystone](https://docs.openstack.org/keyst
 ## Using
 
 * Run docker compose to bring up the stack: `docker-compose up --build`
-* To completely cleanup issue: `docker-compose down —rmi all`
+* To completely cleanup issue: `docker-compose down --rmi all`
 
 ## Environment Variables
 
