@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
   mysql:
     image: mysql:5.7
@@ -6,6 +6,12 @@ services:
 #      - "./.data/db:/var/lib/mysql"
     environment:
       MYSQL_ROOT_PASSWORD: shush
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=shush --execute \"show databases;\""
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
 
   keystone:
     build:
@@ -26,6 +32,11 @@ services:
       ADMIN_TENANT_NAME: admin
       ADMIN_USER_NAME: admin
       ADMIN_PASSWORD: admin
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
 
   horizon:
     build:
@@ -39,5 +50,9 @@ services:
     ports:
       - "80:80"
     environment:
-      # KEYSTONE_URL: http://keystone:5000/v3
       KEYSTONE_URL: http://keystone:5000/v2.0
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 10s
+      timeout: 10s
+      retries: 5

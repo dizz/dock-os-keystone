@@ -21,7 +21,7 @@ EXPOSE 80
 
 RUN \
   apt update && \
-  apt install -y apache2 libapache2-mod-wsgi python-pip python-dev git && \
+  apt install -y apache2 libapache2-mod-wsgi python-pip python-dev git curl && \
   git clone --branch $VERSION --depth 1 https://github.com/openstack/horizon.git ${HORIZON_BASEDIR} && \
   cd ${HORIZON_BASEDIR} && \
   pip install . && \
