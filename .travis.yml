@@ -21,6 +21,7 @@ before_script:
 
 script:
   - docker-compose --version
+  - docker-compose up --build --exit-code-from horizon
 #  - nosetests --with-xunit --with-coverage --cover-erase --cover-package=adapters --cover-package=esm --cover-min-percentage=70
 #  - docker build -t dizz/esm .
 #  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
